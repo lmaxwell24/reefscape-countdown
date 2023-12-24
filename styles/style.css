@@ -1,0 +1,145 @@
+html { 
+  min-height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-image: url(/images/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.flex {
+  width: 100vw; 
+  height: 100vmin;
+  margin: auto;
+  position: absolute;
+  
+  top:0;bottom:0;
+  left:0;right:0;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 35vmin;
+  width: auto;
+  margin: 0px;
+  padding: 4vmin;
+
+  border-radius: 2vmin;
+}
+
+img:hover {
+  background-color: #FFFFFF20;
+  transition: background-color 0.25s;
+}
+
+img:not(hover) {
+  background-color: transparent;
+  transition: background-color 0.25s;
+}
+
+p, i {
+  font-family: 'Fjalla One', sans-serif;
+  background-color: #FFF;
+  
+  display: flex;
+  align-items: center;
+  
+  height: 10vmin;
+  font-size: 6vmin;
+  
+  padding: 0px 1.8vmin;
+  padding-top: 0.1em;
+  margin: 0px;
+  margin-top: 8vmin;
+  
+  border: none;
+  border-radius: 1.8vmin;
+
+  max-width: 90vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+i {
+  margin-top: 0px;
+  padding: 0px;
+  padding-right: .2ch;
+}
+
+span {
+  display: inline;
+  margin: 0;
+}
+
+span.withmargin {
+  margin-left: 0.5ch;
+}
+
+.lightgreen {
+  color: #5CCB83;
+}
+
+.darkgreen {
+  color: #059A56;
+}
+
+.size0 {
+  font-size: 4vmin;
+}
+
+.size1 {
+  font-size: 5vmin;
+}
+
+.size2 {
+  font-size: 6vmin;
+}
+
+.size3 {
+  font-size: 7vmin;
+}
+
+.size4 {
+  font-size: 8vmin;
+}
+
+.size5 {
+  font-size: 9vmin;
+}
+
+button {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 4vmin;
+
+  padding: 1vmin 2vmin;
+  margin: 0px 2vmin;
+  margin-top: 8vmin;
+  
+  border-radius: 1vmin;
+
+  cursor: pointer;
+}
+button.on {
+  color: #5CCB83;
+  background-color: black;
+  border: #5CCB83 solid;
+}
+button.off {
+  color: #FFF;
+  background-color: black;
+  border: #FFF solid;
+}
+
+#team {
+  font-weight: 900;
+}

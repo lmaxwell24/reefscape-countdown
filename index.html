@@ -1,1 +1,39 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/x-icon" href="images/charged-up-icon.ico">
+  <title>CRESCENDO℠ Timer</title>
+  <link href="styles/style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One" rel="stylesheet">
+  <link href="images/background.png" as="image" rel="preload"> 
+</head>
+
+<body>
+
+  <div class="flex">
+
+    <a href="https://www.firstinspires.org/robotics/frc/game-and-season" target="blank">
+      <img src="images/logo.png" width="30%" title="Go to the CRESCENDO℠ page on the FIRST Inspires website" a>
+    </a>
+    <p id="timer">1:23:<span>24</span>:<span>12</span></p>
+    <p id="team">Robototes</p>
+
+    <div>
+      <button type="button" class="on" id="teamNamesButton" onclick="teamNamesFunc()">Team Names Off</button>
+      <!-- Team Names On -->
+      <button type="button" class="on" id="timerButton" onclick="timerFunc()">Total Seconds</button>
+      <!-- Traditional Timer -->
+    </div>
+
+  </div>
+
+  <script src="scripts/nicknames.js"></script>
+  <script src="scripts/timer.js"></script>
+
+</body>
+
+</html>
