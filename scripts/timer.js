@@ -21,6 +21,12 @@ let date = Date.UTC(2024, 0, 6, 17);
 // date = new Date().getTime() + 1000 * 10 // 10 seconds from page load
 // date = new Date().getTime() - 1000 // 1 second before page load
 
+let nicknames = {}
+// Loads the team names from the /nicknames/nicknames.json file
+async function loadNicknames() {
+  let path = "../nicknames/nicknames.json"
+  return fetch(path).then((res) => {return res.json();});
+}
 
 //runs when the team names button is pressed. Switches the state, changes the button text, clears or loads nicknames, and hides or shows the team name field
 function teamNamesFunc() {
@@ -141,36 +147,27 @@ function formatTime(milisec, format) {
 //gets the nickname of a team based on the miliseconds left and the format of the timer. this means that the data from the timer doesn't have to be parsed.
 function getTeamName(milisec, format) {
 
+  let team_number = "0"
+
   switch (format) {
-
     case "traditional":
-      team_number = toMinutes(milisec) * 100 + toSeconds(milisec)
-
-      team_nickname = team_nicknames[team_number]
-      if (team_nickname == null) {
-        return "<i>No Team</i>"
-      }
-
-      return `<span class='darkgreen'>${team_nickname}</span>`
-
+      team_number = (toMinutes(milisec) * 100 + toSeconds(milisec)).toString();
+      break;
     case "seconds":
-      sec = Math.floor(milisec / 1000);
-      team_number = sec % 10000
-
-      if (team_number <= max_team_number) {
-        team_nickname = team_nicknames[team_number]
-        if (team_nickname == null) {
-          return "<i>No Team</i>"
-        }
-      } else { return "<i>No Team</i>" }
-
-      return `<span class='darkgreen'>${team_nickname}</span>`
-
+      let sec = Math.floor(milisec / 1000);
+      team_number = (sec % 10000).toString();
+      break;
     default:
       return "incorrect format"
   }
-}
 
+  if (team_number in nicknames) {
+    let team_nickname = nicknames[team_number]
+    return `<span class='darkgreen'>${team_nickname}</span>`
+  } else {
+    return "<i>No Team</i>"
+  }
+}
 
 //updates the current time, formats the remaining time in the countdown based on timerState and displays it, and if necesary gets the team nickname based on getTeamName and displays it
 let now;
@@ -209,4 +206,9 @@ function update() {
 
 }
 
-update();
+async function start(){
+  nicknames = await loadNicknames();
+  update();
+} 
+
+start();
