@@ -1,3 +1,3 @@
-# [Crescendo Countdown](joloujo.github.io/crescendo-countdown/)
+# [Crescendo Countdown](https://joloujo.github.io/crescendo-countdown/)
 
 A countdown to the 2024 FRC Kickoff
