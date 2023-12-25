@@ -27,13 +27,39 @@ html, body {
   align-items: center;
 }
 
+.bottom_left {
+  padding: 1vmin;
+
+  position: absolute;
+
+  top:auto; bottom:0;
+  left:0; right: auto;
+
+  display: flex;
+  justify-content: left;
+  align-items: end;
+}
+
 img {
   height: 35vmin;
   width: auto;
   margin: 0px;
+  margin-bottom: 4vmin;
   padding: 4vmin;
 
   border-radius: 2vmin;
+}
+
+img.credit {
+  height: 5vmin;
+  width: auto;
+  margin: 0px;
+  padding: 1vmin;
+}
+
+a.credit {
+  margin: 0px;
+  padding: 0px;
 }
 
 img:hover {
@@ -59,7 +85,7 @@ p, i {
   padding: 0px 1.8vmin;
   padding-top: 0.1em;
   margin: 0px;
-  margin-top: 8vmin;
+  margin-bottom: 8vmin;
   
   border: none;
   border-radius: 1.8vmin;
@@ -71,7 +97,7 @@ p, i {
 }
 
 i {
-  margin-top: 0px;
+  margin: 0px;
   padding: 0px;
   padding-right: .2ch;
 }
@@ -123,7 +149,7 @@ button {
 
   padding: 1vmin 2vmin;
   margin: 0px 2vmin;
-  margin-top: 8vmin;
+  margin-bottom: 4vmin;
   
   border-radius: 1vmin;
 

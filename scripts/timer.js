@@ -13,7 +13,7 @@ let timerButton = document.getElementById("timerButton")
 let teamNamesState = "on"
 let timerState = "traditional"
 
-//set the date and time that the countdown is counting to. the original decleration value is kickoff 2023, the commented overrides are for testing
+//set the date and time that the countdown is counting to. the original declaration value is kickoff 2023, the commented overrides are for testing
 let date = Date.UTC(2024, 0, 6, 17);
 // date = new Date().getTime() + 1000 * 60 * 60 + 1000 * 10 // 1 hour and 10 seconds from page load
 // date = new Date().getTime() + 1000 * 60 + 1000 * 10 // 1 minute and 10 seconds from page load
@@ -62,7 +62,7 @@ function timerFunc() {
 }
 
 
-//converts from miliseconds to different units of time
+//converts from milliseconds to different units of time
 function toSeconds(milisec) {
   let sec = Math.floor(milisec / 1000);
   return sec % 60;
@@ -84,7 +84,7 @@ function toDays(milisec) {
 }
 
 
-//formats time in miliseconds to a traditional timer or total seconds based on "format", which can either be "traditional" or "seconds"
+//formats time in milliseconds to a traditional timer or total seconds based on "format", which can either be "traditional" or "seconds"
 function formatTime(milisec, format) {
 
   let time = 0;
@@ -144,7 +144,7 @@ function formatTime(milisec, format) {
   }
 }
 
-//gets the nickname of a team based on the miliseconds left and the format of the timer. this means that the data from the timer doesn't have to be parsed.
+//gets the nickname of a team based on the milliseconds left and the format of the timer. this means that the data from the timer doesn't have to be parsed.
 function getTeamName(milisec, format) {
 
   let team_number = "0"
@@ -169,7 +169,7 @@ function getTeamName(milisec, format) {
   }
 }
 
-//updates the current time, formats the remaining time in the countdown based on timerState and displays it, and if necesary gets the team nickname based on getTeamName and displays it
+//updates the current time, formats the remaining time in the countdown based on timerState and displays it, and if necessary gets the team nickname based on getTeamName and displays it
 let now;
 function update() {
   now = new Date().getTime();
