@@ -24,7 +24,7 @@ let date = Date.UTC(2024, 0, 6, 17);
 let nicknames = {}
 // Loads the team names from the /nicknames/nicknames.json file
 async function loadNicknames() {
-  let path = "../nicknames/nicknames.json"
+  let path = "./nicknames/nicknames.json"
   return fetch(path).then((res) => {return res.json();});
 }
 
