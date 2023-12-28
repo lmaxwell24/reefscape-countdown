@@ -20,6 +20,7 @@ let date = Date.UTC(2024, 0, 6, 17);
 // date = new Date().getTime() + 1000 * 60 + 1000 * 10 // 1 minute and 10 seconds from page load
 // date = new Date().getTime() + 1000 * 10 // 10 seconds from page load
 // date = new Date().getTime() - 1000 // 1 second before page load
+// date = new Date().getTime() + 1000*60*60*24*1 + 1000*60*60*23 + 1000*60*24 + 1000*12; // Robototes example time
 
 let nicknames = {}
 // Loads the team names from the /nicknames/nicknames.json file
