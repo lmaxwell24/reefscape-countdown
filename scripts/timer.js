@@ -35,14 +35,12 @@ function teamNamesFunc() {
     teamNamesButton.innerHTML = "Team Names On"
     teamNamesButton.classList = ["off"]
 
-    clearNicknames();
     team.style.display = "none";
   } else {
     teamNamesState = "on"
     teamNamesButton.innerHTML = "Team Names Off"
     teamNamesButton.classList = ["on"]
 
-    loadNicknames();
     team.style.display = "";
   }
 }
