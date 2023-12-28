@@ -43,6 +43,7 @@ html, body {
 img {
   height: 35vmin;
   width: auto;
+
   margin: 0px;
   margin-bottom: 4vmin;
   padding: 4vmin;
@@ -53,8 +54,11 @@ img {
 img.credit {
   height: 5vmin;
   width: auto;
+
   margin: 0px;
   padding: 1vmin;
+
+  border-radius: 100vmin;
 }
 
 a.credit {
