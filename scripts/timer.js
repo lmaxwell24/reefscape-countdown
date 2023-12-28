@@ -17,7 +17,6 @@ let timerState = "traditional"
 let date = Date.UTC(2024, 0, 6, 17);
 // date = new Date().getTime() + 1000 * 60 * 60 + 1000 * 10 // 1 hour and 10 seconds from page load
 // date = new Date().getTime() + 1000 * 60 + 1000 * 10 // 1 minute and 10 seconds from page load
-// date = new Date().getTime() + 1000 * 60 + 1000 * 10 // 1 minute and 10 seconds from page load
 // date = new Date().getTime() + 1000 * 10 // 10 seconds from page load
 // date = new Date().getTime() - 1000 // 1 second before page load
 // date = new Date().getTime() + 1000*60*60*24*1 + 1000*60*60*23 + 1000*60*24 + 1000*12; // Robototes example time
@@ -88,6 +87,7 @@ function formatTime(milisec, format) {
 
   let time = 0;
 
+  // Get the remaining time as a number depending on the format
   switch (format) {
     case "traditional":
       let sec = toSeconds(milisec);
@@ -105,17 +105,20 @@ function formatTime(milisec, format) {
     time = 0
   }
 
+  // Convert the remaining time to a string and pad it if it's under an hour left
   let digits = time.toString().split("");
   while (digits.length < 4) {
     digits.splice(0, 0, "0")
   }
 
+  // The sizes and colors for each digit, 8 is plenty because 9 digits is at least 100 days
   let sizes = ['0', '1', '2', '3', '2', '3', '4', '5'];
   let colors = ['', '', '', '', 'darkgreen', 'darkgreen', 'darkgreen', 'darkgreen'];
 
+  // Create an array to store each digit with the <span> tags to format it
   let timeArr = new Array(digits.length)
 
-  // <span class='size# color'>#</span>
+  // put each digit in the format <span class='size# color'>#</span>
   for (let i = 1; i <= digits.length; i++) {
     let digit = digits[digits.length - i];
     let classes = `size${sizes[sizes.length - i]} ${colors[colors.length - i]}`;
@@ -123,7 +126,7 @@ function formatTime(milisec, format) {
     timeArr[timeArr.length - i] = `<span class='${classes}'>${digit}</span>`
   }
 
-  // <span class='size1'>:</span>
+  // Add colons every 2 digits from the left in the format <span class='size1'>:</span> if the timer is in the traditional format
   if (format == "traditional") {
 
     let with_colons = []
@@ -148,6 +151,7 @@ function getTeamName(milisec, format) {
 
   let team_number = "0"
 
+  // Get the team number based on the current format
   switch (format) {
     case "traditional":
       team_number = (toMinutes(milisec) * 100 + toSeconds(milisec)).toString();
@@ -160,6 +164,7 @@ function getTeamName(milisec, format) {
       return "incorrect format"
   }
 
+  // Return the team's nickname (formatted) if it is in the nicknames.json file, otherwise return No Team (formatted)
   if (team_number in nicknames) {
     let team_nickname = nicknames[team_number]
     return `<span class='darkgreen'>${team_nickname}</span>`
@@ -171,18 +176,19 @@ function getTeamName(milisec, format) {
 //updates the current time, formats the remaining time in the countdown based on timerState and displays it, and if necessary gets the team nickname based on getTeamName and displays it
 let now;
 function update() {
+  // Find the remaining time until kickoff
   now = new Date().getTime();
-  test = now % 1000
-  if (test < 0) { console.log("skipped") };
   let dif = date - now + 1000;
 
-  formattedTime = formatTime(dif, timerState)
-  timer.innerHTML = formattedTime
+  // update the display
+  timer.innerHTML = formatTime(dif, timerState)
 
   if (teamNamesState == "on") {
     if (dif > 999) {
-      team.innerHTML = getTeamName(dif, timerState) //if the countdown isn't done, then display the team name
+      //if the countdown isn't done, then display the team name
+      team.innerHTML = getTeamName(dif, timerState) 
     } else {
+      //if the countdown is done, then display "Welcome to CRESCENDO!"
       team.innerHTML = "Welcome to" + 
       "<span class='withmargin darkgreen size0'>C</span>" + 
       "<span class='darkgreen size1'>R</span>" + 
@@ -193,10 +199,11 @@ function update() {
       "<span class='darkgreen size3'>N</span>" + 
       "<span class='darkgreen size4'>D</span>" + 
       "<span class='darkgreen size5'>O</span>" + 
-      "!"; //if the countdown is done, then display "Welcome to CRESCENDO!"
+      "!";
     }
   }
 
+  // Loop if the countdown isn't done
   now = new Date().getTime();
   if (now < date + 1000) {
     // console.log(now, 1000 - now % 1000)
@@ -206,8 +213,10 @@ function update() {
 }
 
 async function start(){
+  // Loads the nicknames file and starts the loop
   nicknames = await loadNicknames();
   update();
 } 
 
+// Start the loop
 start();
