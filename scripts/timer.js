@@ -190,15 +190,15 @@ function update() {
     } else {
       //if the countdown is done, then display "Welcome to CRESCENDO!"
       team.innerHTML = "Welcome to" + 
-      "<span class='withmargin darkgreen size0'>C</span>" + 
-      "<span class='darkgreen size1'>R</span>" + 
+      "<span class='withmargin darkgreen size2'>R</span>" + 
       "<span class='darkgreen size2'>E</span>" + 
-      "<span class='darkgreen size3'>S</span>" + 
-      "<span class='darkgreen size1'>C</span>" + 
       "<span class='darkgreen size2'>E</span>" + 
-      "<span class='darkgreen size3'>N</span>" + 
-      "<span class='darkgreen size4'>D</span>" + 
-      "<span class='darkgreen size5'>O</span>" + 
+      "<span class='darkgreen size2'>F</span>" + 
+      "<span class='darkgreen size2'>S</span>" + 
+      "<span class='darkgreen size2'>C</span>" + 
+      "<span class='darkgreen size2'>A</span>" + 
+      "<span class='darkgreen size2'>P</span>" + 
+      "<span class='darkgreen size2'>E</span>" + 
       "!";
     }
   }
