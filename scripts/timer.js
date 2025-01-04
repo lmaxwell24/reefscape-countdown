@@ -14,7 +14,7 @@ let teamNamesState = "on"
 let timerState = "traditional"
 
 //set the date and time that the countdown is counting to. the original declaration value is kickoff 2023, the commented overrides are for testing
-let date = Date.UTC(2024, 0, 6, 17);
+let date = Date.UTC(2025, 0, 4, 17);
 // date = new Date().getTime() + 1000 * 60 * 60 + 1000 * 10 // 1 hour and 10 seconds from page load
 // date = new Date().getTime() + 1000 * 60 + 1000 * 10 // 1 minute and 10 seconds from page load
 // date = new Date().getTime() + 1000 * 10 // 10 seconds from page load

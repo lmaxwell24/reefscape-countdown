@@ -116,11 +116,11 @@ span.withmargin {
 }
 
 .lightgreen {
-  color: #5CCB83;
+  color: #666666;
 }
 
 .darkgreen {
-  color: #059A56;
+  color: #005aaa;
 }
 
 .size0 {
@@ -160,9 +160,9 @@ button {
   cursor: pointer;
 }
 button.on {
-  color: #5CCB83;
+  color: #005aaa;
   background-color: black;
-  border: #5CCB83 solid;
+  border: #005aaa solid;
 }
 button.off {
   color: #FFF;
